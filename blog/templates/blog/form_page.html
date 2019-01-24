@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Event Entry</title>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style> 
+        </style>
+    </head>
+    <body>
+<div class="container">
+<div class="row">
+  <div class="col-sm-8">
+          <h1 style="font-family: cursive">Please put the details of your Event here!</h1><br>
+            <form class="form-horizontal" action="/polls/formpage/" method="POST">
+                
+                {% csrf_token %}
+       {{ form.non_field_errors }}
+        <div class="container" style="font-family: cursive">
+            What's the event:<br>{{form.event_description }}<br><br>
+             Time:<br>{{form.time}}<em>&nbsp;Enter the time in the format HH:MM:SS</em><br><br>
+        Date:<br>{{ form.date }}<em>&nbsp;Enter the date in the format YYYY-MM-DD</em><br><br>
+       Venue:<br>{{ form.venue }}<br><br></div>
+                <input class="btn btn-primary" type="submit" value="Submit">   
+            </form>   
+  </div>
+     <div class="col-sm-4">
+<img style="margin-top: 10em;" src="{% static "blog/ev3.jpg" %}">
+     </div>
+  </div>
+</div>
+
+
+
+    </body>
+</html>
